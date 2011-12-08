@@ -1,0 +1,11 @@
+<div id="header">
+            <%= render "layouts/userlogin"%>
+            <h1><a href="/">The Zoo</a></h1>
+            <h2>keep, collect, and trade exotic animals</h2>
+        </div>
+        <div id="nav">
+            <ul>
+            	<li><%= link_to_unless_current "Home", root_path%><li>
+            	<li><%=link_to_unless_current "User", new_user_path%></li>
+            </ul>
+        </div>

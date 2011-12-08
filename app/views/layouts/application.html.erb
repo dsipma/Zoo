@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zoo</title>
+  <%= stylesheet_link_tag "reset", "styles", "forms" %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div class="wrapper">
+    <div id="container">
+        <%= render "layouts/header"%>
+        
+        <%= render "layouts/sidebar"%>
+        
+        <%= yield %>
+        <div class="clear"></div>
+    </div>
+</div>
+    <%=render "layouts/footer"%>
+</body>
+</html>
