@@ -5,7 +5,11 @@
         </div>
         <div id="nav">
             <ul>
+            	<%if user_signed_in?%>
             	<li><%= link_to_unless_current "Home", root_path%><li>
-            	<li><%=link_to_unless_current "User", new_user_path%></li>
+            	
+            	<%else%>
+            	not logged in
+            	<%end%>
             </ul>
         </div>

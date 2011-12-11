@@ -1,4 +1,6 @@
 Zoo::Application.routes.draw do
+  resources :relationships
+
   resources :animals
 
   devise_for :users   
