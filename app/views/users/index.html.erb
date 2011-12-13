@@ -1,0 +1,30 @@
+<h2><%= @title%></h2>
+<table>
+	<tr>
+		<th> Admin </th>
+		<th> Name </th>
+		<th> email </th>
+		<% if current_user.admin?%>
+		<th colspan = "2"> Action </th>
+		<% end %>
+	</tr>
+	<%@users.each do |user|%>
+	<tr>
+		<td>
+			<%if user.admin%>
+				Admin
+				<%end%>
+		</td>
+		<td>
+			<%= user.name%>
+		</td>
+		<td>
+			<%= user.email%>
+		</td>
+		<%if current_user.admin?%>
+		<td><%= link_to "Edit", edit_user_registration_path(user)%></td>
+		<td><%= link_to "Delete", cancel_user_registration_path, :method => :delete%></td>
+		<%end%>
+	</tr>
+	<%end%>
+</table>
