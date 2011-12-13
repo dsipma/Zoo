@@ -7,6 +7,8 @@ class UserTest < ActiveSupport::TestCase
   end
 end
 
+
+
 # == Schema Information
 #
 # Table name: users
@@ -26,5 +28,6 @@ end
 #  last_sign_in_ip        :string(255)
 #  name                   :string(255)
 #  admin                  :boolean         default(FALSE)
+#  money                  :integer         default(10000)
 #
 

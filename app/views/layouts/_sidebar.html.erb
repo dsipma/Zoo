@@ -2,12 +2,18 @@
 	<ul>
 		<li>
 			<%if user_signed_in?%>
-			<%if current_user.admin?%>
-			<%= render "layouts/adminbar"%>
-			<%else%>
-			<%= render "layouts/userbar"%>
-			<%end%>
-
+				<%if current_user.admin?%>
+					<%= render "layouts/adminbar"%>
+					<%= render "layouts/userbar"%>
+				<%else%>
+					<%= render "layouts/userbar"%>
+				<%end%>
+				<h4><span>Your bank account</h4>
+				<ul class="blocklist">
+				<li>
+					$<%= current_user.money %>
+				</li>
+			</ul>
 			<%else%>
 			<%= render "layouts/defaultbar"%>
 			<%end%>

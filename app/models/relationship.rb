@@ -1,4 +1,6 @@
 class Relationship < ActiveRecord::Base
+  belongs_to :predator, :class_name => "Animal"
+  belongs_to :prey, :class_name => "Animal"
 end
 
 # == Schema Information

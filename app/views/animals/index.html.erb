@@ -1,11 +1,11 @@
-<h1>Listing animals</h1>
+<h2>Listing animals</h2>
 
 <table>
   <tr>
-    <th>Type</th>
+    <th>Species</th>
     <th>Value</th>
     <th>Info</th>
-    <th>Value</th>
+    <th>Price</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,10 +13,10 @@
 
 <% @animals.each do |animal| %>
   <tr>
-    <td><%= animal.type %></td>
+    <td><%= animal.species %></td>
     <td><%= animal.value %></td>
     <td><%= animal.info %></td>
-    <td><%= animal.value %></td>
+    <td><%= animal.price %></td>
     <td><%= link_to 'Show', animal %></td>
     <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
     <td><%= link_to 'Destroy', animal, :confirm => 'Are you sure?', :method => :delete %></td>

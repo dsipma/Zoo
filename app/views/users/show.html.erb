@@ -1,6 +1,6 @@
 <h2><%= @user.name%>'s Zoo</h2>
 
-Your animals:
+Animals:
 <ul>
 	<% @user.animals.each do |animal|%>
 	<li><%= link_to animal.species, animal_path(animal)%></li>

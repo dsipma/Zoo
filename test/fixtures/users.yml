@@ -10,6 +10,8 @@ one: {}
 two: {}
 #  column: value
 
+
+
 # == Schema Information
 #
 # Table name: users
@@ -29,5 +31,6 @@ two: {}
 #  last_sign_in_ip        :string(255)
 #  name                   :string(255)
 #  admin                  :boolean         default(FALSE)
+#  money                  :integer         default(10000)
 #
 
