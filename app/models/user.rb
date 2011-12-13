@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  before_save :cap_name
+   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,7 +11,7 @@ email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :admin
   has_many :animals
   
-   validates :name,     :presence => true,
+  validates :name,     :presence => true,
                         :length => { :maximum => 50 }
   validates :email,     :presence => true,
                         :format => { :with => email_regex },
@@ -19,4 +20,9 @@ email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
                         :confirmation => true,
                         :length => { :within => 6..40 }
   
+  
+  private
+  def cap_name
+    self.name.capitalize!
+  end
 end

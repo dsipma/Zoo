@@ -208,7 +208,7 @@ li ol, li ul {
 }
 
 #header {
-	padding: 0;
+	padding: 0 0 0 25px;
 	margin: 0 auto;
 	height: 110px;
 }
@@ -238,88 +238,10 @@ li ol, li ul {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
-
-#nav {
-	height: 50px;
-	width: 960px;
-}
-
-#nav ul {
-	list-style: none;
-	padding: 0 5px;
-	margin: 0;
-	float: right;
-	height: 50px;
-}
-
-#nav ul li {
-	float: left;
-	display: block;
-	padding:0;
-	background: transparent url('../images/nav-left.jpg') no-repeat scroll top left;
-	margin: 0 2px;
-}
-
-#nav ul li.selected {
-	background: transparent url('../images/nav-selected-left.jpg') no-repeat scroll top left;
-}
-
-#nav ul li a {
-	color: #9f9f9f;
-	display: block;
-	font-size: 13px;
-	font-weight: bold;
-	padding: 22px 20px 12px;
-	text-decoration: none;
-	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
-	background: transparent url('../images/nav-right.jpg') no-repeat scroll top right;
-}
-
-#nav ul li a:hover {
-	color: #ccc;
-}
-
-#nav ul li.selected a, #nav ul li.selected a:hover {
-	color: #eee;
-	background: transparent url('../images/nav-selected-right.jpg') no-repeat scroll top right;
-}
-
-#nav ul li a.selected {
-	color: #fff;
-}
-
-#nav ul li a.selected:hover {
-	text-decoration: none;
-}
-
-#page-intro {
-	height: 150px;
-	padding: 50px 20px 0;
-	color: #eee;
-}
-
-#page-intro h2, #page-intro-small h2 {
-	color: #fff;
-	font-size: 33px;
-	font-weight: bold;
-	text-shadow: 2px 2px #194E67;
-	font-family: 'Lucida Grande','Lucida Sans Unicode',Geneva,Verdana,Sans-Serif;
-}
-
-#page-intro p {
-	font-size: 12px;
-}
-
-#page-intro-small {
-	height: 66px;
-	padding: 30px 20px 0;
-	color: #eee;
-}
-
-
+    
 #body {
 	background: transparent none repeat-y scroll 0 0;
-	margin: 15px auto 0;
+	margin: 45px auto 0;
 	padding: 15px;
 	width: 930px;
 }
@@ -332,8 +254,7 @@ li ol, li ul {
 
 .sidebar {
 	width: 280px;
-	padding: 10px 0 0;
-	background: transparent url('../images/sidebar-top.jpg') no-repeat scroll top left;
+	padding: 0;
 	float: right;
 }
 
@@ -406,11 +327,6 @@ li ol, li ul {
 	text-transform: uppercase;
 }
 
-.sidebar-end { 
-	width: 280px;
-	height: 10px;
-	background: transparent url('../images/sidebar-bottom.jpg') no-repeat scroll top left;
-}
 
 .clear {
 	clear: both;

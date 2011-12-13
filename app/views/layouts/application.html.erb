@@ -15,7 +15,11 @@
         <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
         <%- end -%>
+        <div id="body">
+        	<div id="content">
         <%= yield %>
+        </div>
+        </div>
         <div class="clear"></div>
     </div>
 </div>
