@@ -1,9 +1,9 @@
-<h1>Listing relationships</h1>
+<h2>Listing relationships</h2>
 
 <table>
   <tr>
     <th>Predator</th>
-    <th>Prey</th>
+    <th></th><th>Prey</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +11,9 @@
 
 <% @relationships.each do |relationship| %>
   <tr>
-    <td><%= relationship.predator_id %></td>
-    <td><%= relationship.prey_id %></td>
+    <td><%= relationship.predator.species %></td>
+    <td> eats </td>
+    <td><%= relationship.prey.species %></td>
     <td><%= link_to 'Show', relationship %></td>
     <td><%= link_to 'Edit', edit_relationship_path(relationship) %></td>
     <td><%= link_to 'Destroy', relationship, :confirm => 'Are you sure?', :method => :delete %></td>

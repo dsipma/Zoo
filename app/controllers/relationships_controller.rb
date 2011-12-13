@@ -1,4 +1,6 @@
 class RelationshipsController < ApplicationController
+
+
   # GET /relationships
   # GET /relationships.xml
   def index

@@ -12,12 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :predator_id %><br />
-    <%= f.text_field :predator_id %>
-  </div>
-  <div class="field">
-    <%= f.label :prey_id %><br />
-    <%= f.text_field :prey_id %>
+    <%= f.collection_select :predator_id, Animal.all, :id, :species%>
+    preys on
+
+    <%= f.collection_select :prey_id, Animal.all, :id, :species%>
   </div>
   <div class="actions">
     <%= f.submit %>

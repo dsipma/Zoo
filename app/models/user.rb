@@ -1,9 +1,4 @@
 class User < ActiveRecord::Base
- 
- composed_of :money,
-              :class_name => 'Money',
-              :mapping => %w(money cents),
-              :converter => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : Money.empty }
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save :cap_name
@@ -24,11 +19,11 @@ class User < ActiveRecord::Base
   validates :email,     :presence => true,
                         :format => { :with => email_regex },
                         :uniqueness => { :case_sensitive => false }
-  validates :password,  :presence => true,
-                        :confirmation => true,
-                        :length => { :within => 6..40 }
-  
-  
+  composed_of :money,
+              :class_name => 'Money',
+              :mapping => %w(money cents),
+              :converter => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : Money.empty }
+
   private
   def cap_name
     self.name.capitalize!
