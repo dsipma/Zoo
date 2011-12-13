@@ -11,10 +11,9 @@
 
 <% @relationships.each do |relationship| %>
   <tr>
-    <td><%= relationship.predator.species %></td>
+    <td><%= link_to relationship.predator.species, animal_path(relationship.predator_id)%></td>
     <td> eats </td>
-    <td><%= relationship.prey.species %></td>
-    <td><%= link_to 'Show', relationship %></td>
+    <td><%= link_to relationship.prey.species, animal_path(relationship.prey_id) %></td>
     <td><%= link_to 'Edit', edit_relationship_path(relationship) %></td>
     <td><%= link_to 'Destroy', relationship, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

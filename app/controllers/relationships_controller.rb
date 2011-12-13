@@ -1,25 +1,18 @@
 class RelationshipsController < ApplicationController
-
+  before_filter :admin_user
 
   # GET /relationships
   # GET /relationships.xml
+
+  def show
+    redirect_to relationships_path
+  end
   def index
     @relationships = Relationship.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @relationships }
-    end
-  end
-
-  # GET /relationships/1
-  # GET /relationships/1.xml
-  def show
-    @relationship = Relationship.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @relationship }
     end
   end
 
@@ -46,8 +39,8 @@ class RelationshipsController < ApplicationController
 
     respond_to do |format|
       if @relationship.save
-        format.html { redirect_to(@relationship, :notice => 'Relationship was successfully created.') }
-        format.xml  { render :xml => @relationship, :status => :created, :location => @relationship }
+        format.html { redirect_to(relationships_path, :notice => 'Relationship was successfully created.') }
+        format.xml  { render :xml => relationships_path, :status => :created, :location => @relationship }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @relationship.errors, :status => :unprocessable_entity }
@@ -62,7 +55,7 @@ class RelationshipsController < ApplicationController
 
     respond_to do |format|
       if @relationship.update_attributes(params[:relationship])
-        format.html { redirect_to(@relationship, :notice => 'Relationship was successfully updated.') }
+        format.html { redirect_to(relationships_path, :notice => 'Relationship was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

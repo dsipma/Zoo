@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
 before_filter :authenticate_user!, :except => [:show, :index]
-before_filter :admin_user, :only => [:destroy, :edit, :create, :new, :update  ]
+#before_filter :admin_user, :only => [:destroy, :edit, :create, :new, :update  ]
 
   # GET /animals
   # GET /animals.xml
