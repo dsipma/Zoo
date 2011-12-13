@@ -19,7 +19,11 @@ body {
 /** element defaults **/
 table {
 	width: 100%;
-	text-align: left;
+	text-align: center;
+}
+
+tr {
+    width: 100%;
 }
 
 th, td {
@@ -28,7 +32,8 @@ th, td {
 
 th {
 	color: #fff;
-	background: #2978A1 none repeat-x scroll -15px 0;
+	background: #2978A1;
+    border-bottom: 1px solid #222;
 }
 
 td {
@@ -146,7 +151,7 @@ h2 {
 	letter-spacing: -0.5px;
 	padding: 10px 0 45px;
 	margin: 0;
-	font-weight: normal;
+
 }
 
 h3 {
@@ -253,6 +258,7 @@ li ol, li ul {
 	width: 280px;
 	padding: 0;
 	float: right;
+    border: 1px solid #999;
 }
 
 
@@ -337,7 +343,7 @@ li ol, li ul {
 
 .footer-content {
 	width: 960px;
-	margin: 0 auto;
+	margin: auto;
 	display: block;
 	padding-bottom: 30px;
 }
@@ -390,9 +396,13 @@ li ol, li ul {
 }
 
 .footer-box {
-	width: 220px;
-	margin-right: 26px;
-	float: left;
+	width: 420px;
+	margin: auto;
+    text-align: center;
+}
+
+.footer-box p {
+    text-align: center;
 }
 
 .end-footer-box {
@@ -412,8 +422,4 @@ div#footer-links p {
 	width: 960px;
 	display: block;
 }
-#footer-links a {
-	color: #eee;
-	font-weight: bold;
-	text-decoration: underline;
-}
+
