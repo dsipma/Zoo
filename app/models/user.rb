@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save :cap_name
    
@@ -9,7 +12,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :admin
-  has_many :animals
+  has_many :animals, :through => :owners, :dependent => :destroy
+  has_many :owners
+  
   
   validates :name,     :presence => true,
                         :length => { :maximum => 50 }
@@ -26,3 +31,25 @@ class User < ActiveRecord::Base
     self.name.capitalize!
   end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer         not null, primary key
+#  created_at             :datetime
+#  updated_at             :datetime
+#  email                  :string(255)     default(""), not null
+#  encrypted_password     :string(128)     default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer         default(0)
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
+#  name                   :string(255)
+#  admin                  :boolean         default(FALSE)
+#
+

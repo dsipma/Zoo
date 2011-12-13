@@ -9,7 +9,6 @@ gem 'sqlite3'
 gem 'heroku'
 gem 'devise'
 
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -30,7 +29,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
  group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'annotate'
  end
 #   gem 'webrat'
 # end

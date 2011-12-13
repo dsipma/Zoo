@@ -1,28 +1,8 @@
-<div id="page-intro">
-            <h2><%= @user.name.capitalize%>'s Cage in the Zoo</h2>
-            <p>This is all of <%= @user.name.capitalize%>'s information</p>
-        </div>
-        <div id="body">
+<h2><%= @user.name%>'s Zoo</h2>
 
-            <div id="content">
-                <h2>Welcome to the Zoo</h2>
-                <p>Are you ready to start managing your own zoo?</p>
-
-                <p>While playing the zoo, you will:</p>
-                <ul>
-                    <li>Buy, Sell, and Trade animals</li>
-                    <li>Collect all your favorites</li>
-                    <li>Don't forget about the food chain!!</li>
-                    <li>And much, much more</li>
-                </ul>
-
-                <h3>Buying, Selling, Trading</h3>
-                <p>Every day you log in, you 'earn' some money.  Use this money to buy animals!</p>
-
-                <h3>Training</h3>
-                <p>Explain stuff here</p>
-
-                <h3>Buy cool stuff</h3>
-                <p>Explain stuff here</p>
-
-            </div>
+Your animals:
+<ul>
+	<% @user.animals.each do |animal|%>
+	<li><%= link_to animal.species, animal_path(animal)%></li>
+	<%end%>
+</ul>

@@ -6,3 +6,18 @@ class AnimalTest < ActiveSupport::TestCase
     assert true
   end
 end
+
+
+
+# == Schema Information
+#
+# Table name: animals
+#
+#  id         :integer         not null, primary key
+#  species    :string(255)
+#  info       :text
+#  created_at :datetime
+#  updated_at :datetime
+#  value      :integer
+#
+

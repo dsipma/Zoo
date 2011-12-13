@@ -1,5 +1,20 @@
 class UsersController < ApplicationController
-  def show 
-  @user = User.find(params[:id])
+  before_filter :authenticate_user!, :except => [:show, :new, :create]
+  before_filter :admin_user, :only => [:destroy, :index]
+ 
+  def show
+    @user = User.find(params[:id])
   end
+
+  def index
+    @title = "All users"
+    @users = User.all
+  end
+
+  private
+
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
+  end
+
 end

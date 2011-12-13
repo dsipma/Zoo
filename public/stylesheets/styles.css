@@ -11,10 +11,6 @@ body {
 	background: #ddd url('../images/bodybg.png') repeat-x scroll top left;
 }
 
-.subpage {
-	background-image: url('../images/bodybg-small.png');
-}
-
 * {
 	margin:0;
 	padding:0;
@@ -69,7 +65,7 @@ p {
 }
 
 a {
-	color: #256F94;
+	color: #999900;
 }
 
 a:hover {
@@ -143,11 +139,12 @@ h1 {
 }
 
 h2 {
-	color: #111;
+	color: #C7754A;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 28px;
+	font-weight: bold;
 	letter-spacing: -0.5px;
-	padding: 0 0 5px;
+	padding: 10px 0 45px;
 	margin: 0;
 	font-weight: normal;
 }
@@ -189,7 +186,7 @@ li ol, li ul {
 
 #container {
 	width: 960px;
-	margin:0 auto;
+	margin:0 auto 60px;
 	padding: 0;
 }
 

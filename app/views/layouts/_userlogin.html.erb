@@ -1,6 +1,6 @@
 <div id = "userlogin">
 <%if user_signed_in?%>
-<p>You are logged in as <%=link_to current_user.name, @user%>, <%= link_to "Log out", destroy_user_session_path, :method => :delete%></p>
+<p>You are logged in as <%=link_to current_user.name, @user%> <%=link_to "(edit account)", edit_user_registration_path%>, <%= link_to "Log out", destroy_user_session_path, :method => :delete%></p>
 <%else%>
 <p>You are not logged in, <%=link_to "Sign in", user_session_path%>, or <%=link_to "Sign up!", new_user_registration_path%></p>
 

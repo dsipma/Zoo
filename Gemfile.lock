@@ -29,6 +29,7 @@ GEM
       activesupport (= 3.0.10)
     activesupport (3.0.10)
     addressable (2.2.6)
+    annotate (2.4.0)
     arel (2.0.10)
     bcrypt-ruby (3.0.1)
     builder (2.1.2)
@@ -38,11 +39,6 @@ GEM
       warden (~> 1.0.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    factory_girl (2.3.2)
-      activesupport
-    factory_girl_rails (1.4.0)
-      factory_girl (~> 2.3.0)
-      railties (>= 3.0.0)
     heroku (2.9.0)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
@@ -101,8 +97,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   devise
-  factory_girl_rails
   heroku
   rails (= 3.0.10)
   sqlite3
