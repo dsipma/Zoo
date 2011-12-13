@@ -10,12 +10,18 @@
 </p>
 <p>
   <b>Price:</b>
-  <%= @animal.price %>
+  $<%= @animal.price %>
 </p>
-<b>
-	
-</b>
 
+<p>
+<b>Predators:</b>
+
+</p>
+
+<p>
+<b>Prey:</b>
+
+</p>
 
 <%= link_to 'Edit', edit_animal_path(@animal) %> |
 <%= link_to 'Back', animals_path %>

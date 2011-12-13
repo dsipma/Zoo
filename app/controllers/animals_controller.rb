@@ -1,4 +1,7 @@
 class AnimalsController < ApplicationController
+before_filter :authenticate_user!, :except => [:show, :index]
+before_filter :admin_user, :only => [:destroy, :edit]
+
   # GET /animals
   # GET /animals.xml
   def index

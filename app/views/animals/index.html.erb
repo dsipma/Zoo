@@ -3,9 +3,8 @@
 <table>
   <tr>
     <th>Species</th>
-    <th>Value</th>
-    <th>Info</th>
     <th>Price</th>
+    <th>Info</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,17 +12,20 @@
 
 <% @animals.each do |animal| %>
   <tr>
-    <td><%= animal.species %></td>
-    <td><%= animal.value %></td>
+    <td><%= link_to animal.species, animal %></td>
+    <td>$<%= animal.price %></td>
     <td><%= animal.info %></td>
-    <td><%= animal.price %></td>
-    <td><%= link_to 'Show', animal %></td>
+    <td><%= link_to 'Buy', root_path %></td>
+    <%if current_user && current_user.admin?%>
     <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
     <td><%= link_to 'Destroy', animal, :confirm => 'Are you sure?', :method => :delete %></td>
+    <%end%>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Animal', new_animal_path %>
+<%if current_user && current_user.admin?%>
+		<%= link_to 'New Animal', new_animal_path %>
+<%end%>

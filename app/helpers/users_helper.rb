@@ -5,7 +5,5 @@ module UsersHelper
     end
   end
   
-  def money
-    "$" + number_to_currency(money)
-  end
+ 
 end
