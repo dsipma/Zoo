@@ -16,13 +16,12 @@
 				<%end%>
 		</td>
 		<td>
-			<%= user.name%>
+			<%= link_to user.name, user%>
 		</td>
 		<td>
 			<%= user.email%>
 		</td>
 		<%if current_user.admin?%>
-		<td><%= link_to "Edit", edit_user_registration_path(user)%></td>
 		<td><%= link_to "Delete", cancel_user_registration_path, :method => :delete%></td>
 		<%end%>
 	</tr>

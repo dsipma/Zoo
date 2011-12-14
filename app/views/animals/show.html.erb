@@ -15,11 +15,15 @@
 
 <p>
 <b>Predators:</b>
-
+  <% @animal.predators.each do |predator|%>
+      <%= predator.species%>,
+  <%end%>
 </p>
 
 <p>
 <b>Prey:</b>
+  <% @animal.prey.each do|prey| %>
+  <%= prey.species%>, <%end%>
 
 </p>
 

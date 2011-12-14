@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :admin
   has_many :animals, :through => :owners, :dependent => :destroy
   has_many :owners
-  
+  has_many :sales
   
   validates :name,     :presence => true,
                         :length => { :maximum => 50 }
