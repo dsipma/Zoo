@@ -11,11 +11,10 @@ class Animal < ActiveRecord::Base
   has_many :sales
 
   before_save :cap
-  before_destroy :ensure_not_referenced_by_any_line_item
   
   validates :species, :presence => true
   validates :info,    :presence => true
-  validates :price,   :numericality => { :greater_than => 0 }
+  validates :price,   :numericality => {:minimum => "0"}
 
   composed_of :price,
               :class_name => 'Money',
@@ -28,16 +27,7 @@ class Animal < ActiveRecord::Base
     self.info.capitalize!
   end
 
-   private
-    # ensure that there are no line items referencing this product
-    def ensure_not_referenced_by_any_line_item
-      if line_items.empty?
-        return true
-      else
-        errors.add(:base, "Animal is in a user's cart")
-        return false
-      end
-    end
+
 end
 
 # == Schema Information
