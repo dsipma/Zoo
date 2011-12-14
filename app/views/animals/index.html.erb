@@ -6,10 +6,10 @@
     <th>Price</th>
     <th>Info</th>
     <th></th>
-    <th></th>
+
       <%if current_user && current_user.admin?%>
-    <th></th>
-        <th></th>
+    <th>Admin</th>
+        <th>Actions</th>
         <%end%>
   </tr>
 
@@ -25,7 +25,7 @@
 <% end %>
       </td>
 
-    <%if current_user && current_user.admin?%>
+    <%if current_user.admin?%>
     <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
     <td><%= link_to 'Destroy', animal, :confirm => 'Are you sure?', :method => :delete %></td>
     <%end%>

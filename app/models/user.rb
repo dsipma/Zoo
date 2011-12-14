@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :animals, :through => :owners, :dependent => :destroy
   has_many :owners
   has_many :sales
+  has_many :purchases
   
   validates :name,     :presence => true,
                         :length => { :maximum => 50 }
@@ -32,6 +33,7 @@ class User < ActiveRecord::Base
       owners.create!(:animal_id => animal.id)
       self.money -= animal.price
       self.save
+      Purchase.create(:user_id => self.id, :animal_id =>animal.id)
     else
       return false
     end
@@ -42,6 +44,7 @@ class User < ActiveRecord::Base
     self.money += animal.price
     self.save
     owners.find_by_animal_id(animal).destroy
+    Sale.create(:user_id => self.id, :animal_id =>animal.id)
   end
 
   private

@@ -1,7 +1,11 @@
 Zoo::Application.routes.draw do
-  get "owners/create"
+  get "purchases/index"
 
-  get "owners/destroy"
+  get "sales/index"
+
+  resources :owners, :only=> [:create, :destroy]
+  match "purchases", :to => "purchases#index"
+  match "sales", :to => "sales#index"
 
   resources :relationships
   resources :animals

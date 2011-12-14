@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => :show
-  before_filter :admin_user, :only => [:destroy, :index]
+  before_filter :admin_user, :only => [:destroy]
  
   def show
     @user = User.find(params[:id])
@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted."
-    redirect_to root_path
+    redirect_to users_path, :notice => "User deleted."
   end
 end

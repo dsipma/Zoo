@@ -47,7 +47,7 @@ before_filter :admin_user, :only => [:destroy, :edit, :create, :new, :update  ]
 
     respond_to do |format|
       if @animal.save
-        format.html { redirect_to(@animal, :notice => 'Animal was successfully created.') }
+        format.html { redirect_to(animals_path, :notice => 'Animal was successfully created.') }
         format.xml  { render :xml => @animal, :status => :created, :location => @animal }
       else
         format.html { render :action => "new" }

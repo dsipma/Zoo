@@ -1,19 +1,23 @@
 <h2><%= @title%></h2>
 <table>
 	<tr>
+      <%if current_user.admin%>
 		<th> Admin </th>
 		<th> Name </th>
-		<th> email </th>
-		<% if current_user.admin?%>
-		<th colspan = "2"> Action </th>
-		<% end %>
+        <th> Email </th>
+		<th> Action </th>
+		<% else %>
+        <th>Name</th>
+        <th>Animals</th>
+		 <%end%>
 	</tr>
 	<%@users.each do |user|%>
 	<tr>
+      <%if current_user.admin?%>
 		<td>
-			<%if user.admin%>
+			<%if user.admin?%>
 				Admin
-				<%end%>
+			<%end%>
 		</td>
 		<td>
 			<%= link_to user.name, user%>
@@ -21,9 +25,22 @@
 		<td>
 			<%= user.email%>
 		</td>
-		<%if current_user.admin?%>
 		<td><%= link_to "Delete", cancel_user_registration_path, :method => :delete%></td>
-		<%end%>
+	    <%else%>
+      <td>
+       <%= user.name%>
+      </td>
+          <td></td>
+          </tr>
+          <%user.animals.each do |animal|%>
+              <tr>
+                <td></td>
+                <td><%= link_to animal.species, animal%></td>
+                </td>
+              </tr>
+                <%end%>
+
+       <%end%>
 	</tr>
 	<%end%>
 </table>

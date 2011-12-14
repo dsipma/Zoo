@@ -1,5 +1,5 @@
 <%= form_for(@relationship) do |f| %>
-     <%=render :partial => 'share/error_messages', :locals => {:record => @animal}%>
+     <%=render :partial => 'share/error_messages', :locals => {:record => @relationship}%>
   <div class="field">
     <%= f.collection_select :predator_id, Animal.all, :id, :species%>
     preys on

@@ -9,7 +9,7 @@
         <tr>
 	    <td>     <%= link_to animal.species, animal_path(animal)%> </td>
         <td>     <%= form_for current_user.owners.find_by_animal_id(animal.id), :html => { :method => :delete } do |f| %>
-                <div class="actions"><%= f.submit "Sell" %></div>
+                <div class="actions"><%= f.submit "Sell for $ #{animal.price}" %></div>
               </td>
                  <%end%>
           <%end%>

@@ -304,6 +304,12 @@ li ol, li ul {
 	text-decoration: none;
 }
 
+.sidebar li ul.blocklist li p {
+	display: block;
+	padding: 7px 8px;
+	text-decoration: none;
+}
+
 .sidebar li ul.blocklist li a:hover {
 	background-color: #202020;
 	color: #ccc;

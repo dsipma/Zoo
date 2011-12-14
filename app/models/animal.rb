@@ -6,6 +6,7 @@ class Animal < ActiveRecord::Base
                                     :class_name => "Relationship"
   has_many :predators, :through => :reverse_relationships, :source => "predator"
   has_many :sales
+  has_many :purchases
   has_many :owners
   has_many :users, :through => :owners
   before_save :cap
