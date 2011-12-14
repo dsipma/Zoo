@@ -1,0 +1,15 @@
+<h2>All Purchases</h2>
+<table>
+  <tr>
+  <th>User </th>
+  <th>Animal</th>
+  <th>Time</th>
+  </tr>
+  <% @purchases.each do |purchase|%>
+  <tr>
+    <td><%=purchase.user.name%></td>
+    <td><%=purchase.animal.species%></td>
+    <td><%=purchase.created_at.strftime("%b %d, %I:%M %p")%></td>
+  </tr>
+      <%end%>
+</table>
