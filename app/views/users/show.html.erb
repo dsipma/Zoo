@@ -1,12 +1,18 @@
 <h2><%= @user.name%>'s Zoo</h2>
 
-Animals:
-<ul><%if @user.animals.length%>
-	<%=@user.name%> doesn't currently have any animals.
+<p>Animals:</p>
+    <%if @user.animals.count == 0%>
+	<p><%=@user.name%> doesn't currently have any animals.</p>
     <%else%>
+      <table>
         <% @user.animals.each do |animal|%>
-	        <li><%= link_to animal.species, animal_path(animal)%></li>
-        <%end%>
+        <tr>
+	    <td>     <%= link_to animal.species, animal_path(animal)%> </td>
+        <td>     <%= form_for current_user.owners.find_by_animal_id(animal.id), :html => { :method => :delete } do |f| %>
+                <div class="actions"><%= f.submit "Sell" %></div>
+              </td>
+                 <%end%>
+          <%end%>
+         </tr>
   <%end%>
-
-</ul>
+</table>

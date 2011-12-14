@@ -1,5 +1,5 @@
 <%= form_for(@animal) do |f| %>
-    <%render :partial => '/share/form_errors', :locals => {:record => @animal}%>
+    <%=render :partial => 'share/error_messages', :locals => {:record => @animal}%>
 
 
   <div class="field">

@@ -1,8 +1,13 @@
 Zoo::Application.routes.draw do
+  get "owners/create"
+
+  get "owners/destroy"
+
   resources :relationships
   resources :animals
   devise_for :users   
   resources :users
+  resources :owners, :only => [:create, :destroy]
   get "/buy/:id", :to => "sales#buy"
   get "/sell/:id", :to => "sales#sell"
 

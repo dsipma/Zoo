@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  before_save :cap_name
    
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -10,6 +9,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :admin
+
   has_many :animals, :through => :owners, :dependent => :destroy
   has_many :owners
   has_many :sales
@@ -19,10 +19,30 @@ class User < ActiveRecord::Base
   validates :email,     :presence => true,
                         :format => { :with => email_regex },
                         :uniqueness => { :case_sensitive => false }
+
+  before_save :cap_name
+
   composed_of :money,
               :class_name => 'Money',
               :mapping => %w(money cents),
               :converter => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : Money.empty }
+
+  def purchase!(animal)
+    if(animal.price <= self.money)
+      owners.create!(:animal_id => animal.id)
+      self.money -= animal.price
+      self.save
+    else
+      return false
+    end
+
+  end
+
+  def sell!(animal)
+    self.money += animal.price
+    self.save
+    owners.find_by_animal_id(animal).destroy
+  end
 
   private
   def cap_name

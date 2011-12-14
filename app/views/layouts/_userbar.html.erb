@@ -1,5 +1,5 @@
 <h4><span><%= current_user.name%>'s Navigation</span></h4>
 <ul class="blocklist">
-                        <li><%= link_to  "Buy/Sell Animals", animals_path%></li>
-                        <li><%= link_to "Trade Animals", root_path%></li>
+                        <li><%= link_to  "Buy Animals", animals_path%></li>
+                        <li><%= link_to "See your Zoo", user_path(current_user)%></li>
                         </ul>

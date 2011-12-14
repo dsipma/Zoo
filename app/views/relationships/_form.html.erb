@@ -1,16 +1,5 @@
 <%= form_for(@relationship) do |f| %>
-  <% if @relationship.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@relationship.errors.count, "error") %> prohibited this relationship from being saved:</h2>
-
-      <ul>
-      <% @relationship.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+     <%=render :partial => 'share/error_messages', :locals => {:record => @animal}%>
   <div class="field">
     <%= f.collection_select :predator_id, Animal.all, :id, :species%>
     preys on

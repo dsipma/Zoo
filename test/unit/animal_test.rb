@@ -11,6 +11,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: animals
@@ -20,6 +21,6 @@ end
 #  info       :text
 #  created_at :datetime
 #  updated_at :datetime
-#  value      :integer
+#  price      :integer
 #
 

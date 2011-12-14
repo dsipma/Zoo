@@ -6,7 +6,8 @@
     <th>Price</th>
     <th>Info</th>
     <th></th>
-    <%if current_user && current_user.admin?%>
+    <th></th>
+      <%if current_user && current_user.admin?%>
     <th></th>
         <th></th>
         <%end%>
@@ -17,7 +18,13 @@
     <td><%= link_to animal.species, animal %></td>
     <td>$<%= animal.price %></td>
     <td><%= animal.info %></td>
-    <td><%= link_to 'Buy', '/buy/'+ animal.id.to_s %></td>
+    <td>
+      <%= form_for current_user.owners.build(:animal_id => animal.id) do |f| %>
+  <div><%= f.hidden_field :animal_id %></div>
+  <div class="actions"><%= f.submit "Buy" %></div>
+<% end %>
+      </td>
+
     <%if current_user && current_user.admin?%>
     <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
     <td><%= link_to 'Destroy', animal, :confirm => 'Are you sure?', :method => :delete %></td>

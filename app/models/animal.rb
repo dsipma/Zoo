@@ -1,20 +1,18 @@
 class Animal < ActiveRecord::Base
   has_many :users, :through => :owner
-
   has_many :relationships,          :foreign_key => "predator_id", :dependent => :destroy
   has_many :prey, :through => :relationships, :source => "prey"
-
   has_many :reverse_relationships,  :foreign_key => "prey_id", :dependent => :destroy,
                                     :class_name => "Relationship"
   has_many :predators, :through => :reverse_relationships, :source => "predator"
-
   has_many :sales
-
+  has_many :owners
+  has_many :users, :through => :owners
   before_save :cap
   
   validates :species, :presence => true
   validates :info,    :presence => true
-  validates :price,   :numericality => {:minimum => "0"}
+  validates :price,   :numericality => {:greater_than => 0}
 
   composed_of :price,
               :class_name => 'Money',
@@ -30,6 +28,7 @@ class Animal < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: animals
@@ -39,6 +38,6 @@ end
 #  info       :text
 #  created_at :datetime
 #  updated_at :datetime
-#  value      :integer
+#  price      :integer
 #
 
